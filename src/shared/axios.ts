@@ -12,7 +12,6 @@ const HttpService = (baseUrl: string): AxiosInstance => {
 
   instance.interceptors.request.use(
     (config) => {
-      console.log(config);
       return config;
     },
     (error) => {
@@ -34,6 +33,5 @@ const HttpService = (baseUrl: string): AxiosInstance => {
 
 const AuthService = HttpService(config.authServiceUrl);
 const CoreService = HttpService(config.coreServiceUrl);
-const PaymentService = HttpService(config.paymentServiceUrl);
 
-export { HttpService, AuthService, CoreService, PaymentService };
+export { HttpService, AuthService, CoreService };

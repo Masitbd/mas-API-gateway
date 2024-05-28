@@ -8,6 +8,8 @@ import { permissionRoutes } from '../modules/permission/permission.routes';
 import { SuperAdminRoutes } from '../modules/superAdmin/superAdmin.routes';
 import { UserPermissionRoutes } from '../modules/userPermission/userPermission.routes';
 import { ProfileRoutes } from '../modules/profile/profile.routes';
+import { TesRoutes } from '../modules/test/test.routes';
+import { OrderRoutes } from '../modules/order/order.routes';
 
 const router = express.Router();
 
@@ -41,6 +43,14 @@ const moduleRoutes = [
   {
     path: '/profile',
     routes: ProfileRoutes.routes
+  },
+  {
+    path: '/test',
+    routes: TesRoutes.routes
+  },
+  {
+    path: '/order',
+    routes: OrderRoutes.routes
   }
 ];
 
