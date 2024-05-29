@@ -10,6 +10,9 @@ import { UserPermissionRoutes } from '../modules/userPermission/userPermission.r
 import { ProfileRoutes } from '../modules/profile/profile.routes';
 import { TesRoutes } from '../modules/test/test.routes';
 import { OrderRoutes } from '../modules/order/order.routes';
+import { Core_Service_Api_Path } from '../../enums/coreServiceApiPath';
+import { BacteriaRoutes } from '../modules/bacteria/bacteria.routes';
+import { AccountRoutes } from '../modules/account/account.routes';
 
 const router = express.Router();
 
@@ -51,6 +54,14 @@ const moduleRoutes = [
   {
     path: '/order',
     routes: OrderRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.ACCOUNT,
+    routes: AccountRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.BACTERIA,
+    routes: BacteriaRoutes.routes
   }
 ];
 
