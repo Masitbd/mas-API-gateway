@@ -16,7 +16,7 @@ const createDepartment = async (req: Request) => {
   return response;
 };
 const updateDepartment = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
+  const response: IGenericResponse = await CoreService.patch(
     `${Core_Service_Api_Path.DEPARTMENTS}/${req.params.id}`,
     req.body,
     {
@@ -29,7 +29,7 @@ const updateDepartment = async (req: Request) => {
 };
 
 const deleteDepartment = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
+  const response: IGenericResponse = await CoreService.delete(
     `${Core_Service_Api_Path.DEPARTMENTS}/${req.params.id}`,
     {
       headers: {
@@ -41,7 +41,7 @@ const deleteDepartment = async (req: Request) => {
 };
 
 const getAllDepartment = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(Core_Service_Api_Path.DEPARTMENTS, {
+  const response: IGenericResponse = await CoreService.get(Core_Service_Api_Path.DEPARTMENTS, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -50,7 +50,7 @@ const getAllDepartment = async (req: Request) => {
 };
 
 const getSingleDepartment = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
+  const response: IGenericResponse = await CoreService.get(
     `${Core_Service_Api_Path.DEPARTMENTS}/${req.params.id}`,
     {
       headers: {

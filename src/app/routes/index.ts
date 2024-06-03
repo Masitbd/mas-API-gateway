@@ -1,18 +1,30 @@
 import express from 'express';
-import { userRoutes } from '../modules/user/user.routes';
 import { AuthRoutes } from '../modules/auth/auth.routes';
+import { userRoutes } from '../modules/user/user.routes';
 
 import { adminRoutes } from '../modules/admin/admin.routes';
 
-import { permissionRoutes } from '../modules/permission/permission.routes';
-import { SuperAdminRoutes } from '../modules/superAdmin/superAdmin.routes';
-import { UserPermissionRoutes } from '../modules/userPermission/userPermission.routes';
-import { ProfileRoutes } from '../modules/profile/profile.routes';
-import { TesRoutes } from '../modules/test/test.routes';
-import { OrderRoutes } from '../modules/order/order.routes';
 import { Core_Service_Api_Path } from '../../enums/coreServiceApiPath';
-import { BacteriaRoutes } from '../modules/bacteria/bacteria.routes';
 import { AccountRoutes } from '../modules/account/account.routes';
+import { BacteriaRoutes } from '../modules/bacteria/bacteria.routes';
+import { ConditionRoutes } from '../modules/condition/condition.routes';
+import { DepartmentRoutes } from '../modules/departments/departments.routes';
+import { DoctorRoutes } from '../modules/doctor/doctor.routes';
+import { HospitalGroupRoutes } from '../modules/hospitalGroup/hospitalGroup.routes';
+import { OrderRoutes } from '../modules/order/order.routes';
+import { PatientRoutes } from '../modules/patient/patient.routes';
+import { permissionRoutes } from '../modules/permission/permission.routes';
+import { PdrvRoutes } from '../modules/prdv/prdv.routes';
+import { ProfileRoutes } from '../modules/profile/profile.routes';
+import { ReportGroupRoutes } from '../modules/reportGroup/reportGroup.routes';
+import { SensitivityRoutes } from '../modules/sensitivity/sensitivity.routes';
+import { SpecimenRoutes } from '../modules/specimen/specimen.routes';
+import { SuperAdminRoutes } from '../modules/superAdmin/superAdmin.routes';
+import { TesRoutes } from '../modules/test/test.routes';
+import { TestReportRoutes } from '../modules/testReport/testReport.routes';
+import { TransactionRoutes } from '../modules/transaction/transaction.routes';
+import { UserPermissionRoutes } from '../modules/userPermission/userPermission.routes';
+import { VacuumTubeRoutes } from '../modules/vacuumTube/vacuumTube.routes';
 
 const router = express.Router();
 
@@ -62,6 +74,54 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.BACTERIA,
     routes: BacteriaRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.CONDITION,
+    routes: ConditionRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.DEPARTMENTS,
+    routes: DepartmentRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.DOCTOR,
+    routes: DoctorRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.HOSPITALGROUP,
+    routes: HospitalGroupRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.PATIENT,
+    routes: PatientRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.PDRV,
+    routes: PdrvRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.REPORTGROUP,
+    routes: ReportGroupRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.SENSITIVITY,
+    routes: SensitivityRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.SPECIMEN,
+    routes: SpecimenRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.TESTREPORT,
+    routes: TestReportRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.TESTTUBE,
+    routes: VacuumTubeRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.TRANSACTION,
+    routes: TransactionRoutes.routes
   }
 ];
 

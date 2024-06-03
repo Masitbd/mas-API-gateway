@@ -14,4 +14,4 @@ routes.patch('/', PatientController.updatePatient);
 
 // routes.delete('/:id', PatientController.deletePatientController);
 
-export const PatientControllerRoutes = { routes };
+export const PatientRoutes = { routes };
