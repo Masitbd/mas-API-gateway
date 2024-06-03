@@ -3,7 +3,7 @@ import { IGenericResponse } from '../../../interfaces/common';
 import { AuthService } from '../../../shared/axios';
 
 const postSuperAdmin = async (req: Request) => {
-  const response: IGenericResponse = await AuthService.post('/superAdmin');
+  const response: IGenericResponse = await AuthService.get('/superAdmin');
   return response;
 };
 
