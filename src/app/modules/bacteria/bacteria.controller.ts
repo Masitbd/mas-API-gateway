@@ -4,8 +4,7 @@ import { BacteriaService } from './bacteria.service';
 
 const createBacteria = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await BacteriaService.patchBacteria(req);
-
+    const result = await BacteriaService.postBacteria(req);
     sendResponse(res, result);
   } catch (error) {
     next(error);

@@ -4,6 +4,7 @@ import { DepartmentService } from './departments.service';
 
 const createDepartment = async (req: Request, res: Response, next: NextFunction) => {
   try {
+    console.log(req.body);
     const result = await DepartmentService.createDepartment(req);
 
     sendResponse(res, result);

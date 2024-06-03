@@ -22,21 +22,21 @@ const globalExceptionHandler: ErrorRequestHandler = (
 
   if (error instanceof AxiosError) {
     statusCode = error.response?.status || 500;
-    message = error.response?.data?.message || 'Something went wrong';
+    message = 'FAG' + (error.response?.data?.message || 'Something went wrong');
     errorMessages = error.response?.data?.errorMessages || [];
   } else if (error instanceof ZodError) {
     const simplifiedError = handleZodError(error);
     statusCode = simplifiedError.statusCode;
-    message = simplifiedError.message;
+    message = 'FAG' + simplifiedError.message;
     errorMessages = simplifiedError.errorMessages;
   } else if (error instanceof ApiError) {
     statusCode = error?.statusCode;
-    message = error?.message;
+    message = 'FAG' + error?.message;
     errorMessages = error?.message
       ? [
           {
             path: '',
-            message: error?.message
+            message: 'FAG' + error?.message
           }
         ]
       : [];
@@ -46,7 +46,7 @@ const globalExceptionHandler: ErrorRequestHandler = (
       ? [
           {
             path: '',
-            message: error?.message
+            message: 'FAG' + error?.message
           }
         ]
       : [];

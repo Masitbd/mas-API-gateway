@@ -5,7 +5,7 @@ import { CoreService } from '../../../shared/axios';
 
 const createHospitalGroup = async (req: Request) => {
   const response: IGenericResponse = await CoreService.post(
-    Core_Service_Api_Path.HOSPITALGROUP,
+    `${Core_Service_Api_Path.HOSPITALGROUP}/create-hospitalGroup`,
     req.body,
     {
       headers: {

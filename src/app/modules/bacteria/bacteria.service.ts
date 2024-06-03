@@ -4,19 +4,13 @@ import { CoreService } from '../../../shared/axios';
 import { Core_Service_Api_Path } from '../../../enums/coreServiceApiPath';
 
 const postBacteria = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
-    Core_Service_Api_Path.BACTERIA,
-    req.body,
-    {
-      headers: {
-        Authorization: req.headers.authorization
-      }
-    }
-  );
+  const response: IGenericResponse = await CoreService.post('/bacteria', req.body);
+
   return response;
 };
 const patchBacteria = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
+  console.log(req.params.id);
+  const response: IGenericResponse = await CoreService.patch(
     `${Core_Service_Api_Path.BACTERIA}/${req.params.id}`,
     req.body,
     {
@@ -29,7 +23,7 @@ const patchBacteria = async (req: Request) => {
 };
 
 const deleteBacteria = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
+  const response: IGenericResponse = await CoreService.delete(
     `${Core_Service_Api_Path.BACTERIA}/${req.params.id}`,
     {
       headers: {
@@ -41,7 +35,7 @@ const deleteBacteria = async (req: Request) => {
 };
 
 const fetchAll = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(Core_Service_Api_Path.BACTERIA, {
+  const response: IGenericResponse = await CoreService.get(Core_Service_Api_Path.BACTERIA, {
     headers: {
       Authorization: req.headers.authorization
     }
@@ -50,7 +44,7 @@ const fetchAll = async (req: Request) => {
 };
 
 const fetchSingle = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
+  const response: IGenericResponse = await CoreService.get(
     `${Core_Service_Api_Path.BACTERIA}/${req.params.id}`,
     {
       headers: {
