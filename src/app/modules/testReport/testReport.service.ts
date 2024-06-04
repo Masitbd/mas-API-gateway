@@ -48,7 +48,7 @@ const getAllTestReport = async (req: Request) => {
   });
   return response;
 };
-const getAllTestReportPrint = async (req: Request) => {
+const getSingleTestReportPrint = async (req: Request) => {
   const response: IGenericResponse = await CoreService.post(
     `${Core_Service_Api_Path.TESTREPORT}/print/${req.params.id}`,
     {
@@ -62,7 +62,7 @@ const getAllTestReportPrint = async (req: Request) => {
 
 const getSingleTestReport = async (req: Request) => {
   const response: IGenericResponse = await CoreService.post(
-    `${Core_Service_Api_Path.TESTREPORT}/print/${req.params.id}`,
+    `${Core_Service_Api_Path.TESTREPORT}/${req.params.id}`,
     {
       headers: {
         Authorization: req.headers.authorization
@@ -77,6 +77,6 @@ export const TestReportService = {
   updateTestReport,
   deleteTestReport,
   getSingleTestReport,
-  getAllTestReportPrint,
+  getSingleTestReportPrint,
   getAllTestReport
 };
