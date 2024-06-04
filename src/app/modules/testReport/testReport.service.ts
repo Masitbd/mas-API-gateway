@@ -61,8 +61,8 @@ const getAllTestReportPrint = async (req: Request) => {
 };
 
 const getSingleTestReport = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.get(
-    `${Core_Service_Api_Path.TESTREPORT}/${req.params.id}`,
+  const response: IGenericResponse = await CoreService.post(
+    `${Core_Service_Api_Path.TESTREPORT}/print/${req.params.id}`,
     {
       headers: {
         Authorization: req.headers.authorization
