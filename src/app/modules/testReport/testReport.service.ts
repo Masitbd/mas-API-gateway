@@ -61,7 +61,7 @@ const getSingleTestReportPrint = async (req: Request) => {
 };
 
 const getSingleTestReport = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
+  const response: IGenericResponse = await CoreService.get(
     `${Core_Service_Api_Path.TESTREPORT}/${req.params.id}`,
     {
       headers: {
