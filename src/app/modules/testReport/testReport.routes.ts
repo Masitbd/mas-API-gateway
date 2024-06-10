@@ -6,7 +6,7 @@ const routes = express.Router();
 routes.get('/', TestReportController.getAllTestReport);
 
 routes.post('/', TestReportController.createTestReport);
-routes.post('/print/:id', TestReportController.getSingleTestReportPrint);
+routes.post('/print', TestReportController.getSingleTestReportPrint);
 
 routes.get('/:id', TestReportController.getSingleTestReport);
 
