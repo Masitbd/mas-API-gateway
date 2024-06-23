@@ -1,12 +1,11 @@
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
-import express, { Application } from 'express';
+import express, { Application, NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
 import globalExceptionHandler from './app/middlewares/globalExceptionHandler';
 import routes from './app/routes';
 
 const app: Application = express();
-
 
 app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(express.urlencoded({ extended: true }));
@@ -14,7 +13,9 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use('/api/v1', routes);
-
+app.get('/', async (req: Request, res: Response, next: NextFunction) => {
+  res.send('Server is working');
+});
 
 app.use(globalExceptionHandler);
 
