@@ -32,11 +32,12 @@ const patchOrder = async (req: Request) => {
   return respone;
 };
 const fetchAllOrder = async (req: Request) => {
+  console.log(req.query);
   const respone: IGenericResponse = await CoreService.get(Core_Service_Api_Path.ORDER, {
     headers: {
       Authorization: req.headers.authorization
     },
-    params: req.params
+    params: req.query
   });
   return respone;
 };

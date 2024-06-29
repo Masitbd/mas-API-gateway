@@ -25,6 +25,8 @@ import { TestReportRoutes } from '../modules/testReport/testReport.routes';
 import { TransactionRoutes } from '../modules/transaction/transaction.routes';
 import { UserPermissionRoutes } from '../modules/userPermission/userPermission.routes';
 import { VacuumTubeRoutes } from '../modules/vacuumTube/vacuumTube.routes';
+import { ReportTypeGroupRoutes } from '../modules/reportTypeGroup/reportTypeGroup.route';
+import { ReportTypeRoutes } from '../modules/reportType/reportType.routes';
 
 const router = express.Router();
 
@@ -122,6 +124,14 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.TRANSACTION,
     routes: TransactionRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.REPORT_TYPE_GROUP,
+    routes: ReportTypeGroupRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.REPORT_Type,
+    routes: ReportTypeRoutes.routes
   }
 ];
 
