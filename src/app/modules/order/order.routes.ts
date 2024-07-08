@@ -6,5 +6,6 @@ routes.post('/', OrderController.createOrder);
 routes.patch('/:id', OrderController.updateOrder);
 routes.get('/', OrderController.getAllOrder);
 routes.get('/:id', OrderController.getSingleOrder);
+routes.patch('/dewCollection/:oid', OrderController.dewCollection);
 
 export const OrderRoutes = { routes };

@@ -54,7 +54,20 @@ const fetchSingleOrder = async (req: Request) => {
   return respone;
 };
 
+const dewCollection = async (req: Request) => {
+  const respone: IGenericResponse = await CoreService.patch(
+    `${Core_Service_Api_Path.ORDER}/dewCollection/${req.params.oid}`,
+    req.body,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return respone;
+};
 export const OrderService = {
+  dewCollection,
   fetchInvoice,
   postOrder,
   patchOrder,

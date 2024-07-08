@@ -47,10 +47,20 @@ const getSingleOrder = async (req: Request, res: Response, next: NextFunction) =
   }
 };
 
+const dewCollection = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await OrderService.dewCollection(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const OrderController = {
   getInvoice,
   createOrder,
   updateOrder,
   getAllOrder,
-  getSingleOrder
+  getSingleOrder,
+  dewCollection
 };
