@@ -3,7 +3,7 @@ import { TransactionController } from './transaction.controller';
 
 const routes = express.Router();
 
-routes.get('/', TransactionController.getAllTransaction);
+routes.get('/uuid/:uuid', TransactionController.getAllTransaction);
 
 routes.post('/', TransactionController.createTransaction);
 
