@@ -53,7 +53,7 @@ const getSingleTestReport = async (req: Request, res: Response, next: NextFuncti
 };
 const getSingleTestReportPrint = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const result = await TestReportService.getSingleTestReport(req);
+    const result = await TestReportService.getSingleTestReportPrint(req);
 
     sendResponse(res, result);
   } catch (error) {
