@@ -16,5 +16,6 @@ export enum Core_Service_Api_Path {
   DEPARTMENTS = '/departments',
   REPORTGROUP = '/reportGroup',
   REPORT_TYPE_GROUP = '/reportTypeGroup',
-  REPORT_Type = '/reportType'
+  REPORT_Type = '/reportType',
+  REPORT_TEST = '/report/test'
 }
