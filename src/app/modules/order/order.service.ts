@@ -1,7 +1,7 @@
 import { Request } from 'express';
+import { Core_Service_Api_Path } from '../../../enums/coreServiceApiPath';
 import { IGenericResponse } from '../../../interfaces/common';
 import { CoreService } from '../../../shared/axios';
-import { Core_Service_Api_Path } from '../../../enums/coreServiceApiPath';
 
 const fetchInvoice = async (req: Request) => {
   const respone: IGenericResponse = await CoreService.get(
@@ -32,7 +32,7 @@ const patchOrder = async (req: Request) => {
   return respone;
 };
 const fetchAllOrder = async (req: Request) => {
-  console.log(req.query);
+  console.log('req',req.query);
   const respone: IGenericResponse = await CoreService.get(Core_Service_Api_Path.ORDER, {
     headers: {
       Authorization: req.headers.authorization
