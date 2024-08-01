@@ -28,6 +28,7 @@ import { VacuumTubeRoutes } from '../modules/vacuumTube/vacuumTube.routes';
 import { ReportTypeGroupRoutes } from '../modules/reportTypeGroup/reportTypeGroup.route';
 import { ReportTypeRoutes } from '../modules/reportType/reportType.routes';
 import { ReportRoutes } from '../modules/testReportGenerator/report.routes';
+import { CommentRoutes } from '../modules/comment/comment.routes';
 
 const router = express.Router();
 
@@ -137,6 +138,10 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.REPORT_TEST,
     routes: ReportRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.COMMENT,
+    routes: CommentRoutes.routes
   }
 ];
 
