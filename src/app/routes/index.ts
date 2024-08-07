@@ -7,9 +7,11 @@ import { adminRoutes } from '../modules/admin/admin.routes';
 import { Core_Service_Api_Path } from '../../enums/coreServiceApiPath';
 import { AccountRoutes } from '../modules/account/account.routes';
 import { BacteriaRoutes } from '../modules/bacteria/bacteria.routes';
+import { CommentRoutes } from '../modules/comment/comment.routes';
 import { ConditionRoutes } from '../modules/condition/condition.routes';
 import { DepartmentRoutes } from '../modules/departments/departments.routes';
 import { DoctorRoutes } from '../modules/doctor/doctor.routes';
+import { DoctorSealRoutes } from '../modules/doctorSeal/seal.routes';
 import { HospitalGroupRoutes } from '../modules/hospitalGroup/hospitalGroup.routes';
 import { OrderRoutes } from '../modules/order/order.routes';
 import { PatientRoutes } from '../modules/patient/patient.routes';
@@ -17,18 +19,17 @@ import { permissionRoutes } from '../modules/permission/permission.routes';
 import { PdrvRoutes } from '../modules/prdv/prdv.routes';
 import { ProfileRoutes } from '../modules/profile/profile.routes';
 import { ReportGroupRoutes } from '../modules/reportGroup/reportGroup.routes';
+import { ReportTypeRoutes } from '../modules/reportType/reportType.routes';
+import { ReportTypeGroupRoutes } from '../modules/reportTypeGroup/reportTypeGroup.route';
 import { SensitivityRoutes } from '../modules/sensitivity/sensitivity.routes';
 import { SpecimenRoutes } from '../modules/specimen/specimen.routes';
 import { SuperAdminRoutes } from '../modules/superAdmin/superAdmin.routes';
 import { TesRoutes } from '../modules/test/test.routes';
 import { TestReportRoutes } from '../modules/testReport/testReport.routes';
+import { ReportRoutes } from '../modules/testReportGenerator/report.routes';
 import { TransactionRoutes } from '../modules/transaction/transaction.routes';
 import { UserPermissionRoutes } from '../modules/userPermission/userPermission.routes';
 import { VacuumTubeRoutes } from '../modules/vacuumTube/vacuumTube.routes';
-import { ReportTypeGroupRoutes } from '../modules/reportTypeGroup/reportTypeGroup.route';
-import { ReportTypeRoutes } from '../modules/reportType/reportType.routes';
-import { ReportRoutes } from '../modules/testReportGenerator/report.routes';
-import { CommentRoutes } from '../modules/comment/comment.routes';
 
 const router = express.Router();
 
@@ -142,6 +143,10 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.COMMENT,
     routes: CommentRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.SEAL,
+    routes: DoctorSealRoutes.routes
   }
 ];
 
