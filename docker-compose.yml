@@ -1,44 +1,35 @@
-version: '3.8'
+version: '3'
 
 services:
-  app:
+  api-gateway:
     build: .
     ports:
       - 3001:${PORT}
     depends_on:
-      - mongo
       - redis
+     
     environment:
-      - NODE_ENV=production
-      - JWT_SECRET=${JWT_SECRET}
-      - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
-      - CLOUDINARY_API_SECRET=${CLOUDINARY_API_SECRET}
-      - CLOUDINARY_CLOUD_NAME=${CLOUDINARY_CLOUD_NAME}
-      - PAYMENT_SERVICE_URL=${PAYMENT_SERVICE_URL}
-      - REDIS_URL=redis://redis:6379
+      - NODE_ENV=development
       - AUTH_SERVICE_URL=${AUTH_SERVICE_URL}
       - CORE_SERVICE_URL=${CORE_SERVICE_URL}
-      - CLOUDINARY_API_KEY=${CLOUDINARY_API_KEY}
-      - PORT=3001
-      #- PORT=${PORT}
+    networks:
+      - mas-hms-network
     volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-
-  mongo:
-    image: mongo:latest
-    ports:
-      - 27018:27017
-    volumes:
-      - mongo-data:/data/db
-
+      - .:/app  
+      - /app/node_modules
   redis:
     image: redis:6.2
     ports:
-      - '6380:6379'
+      - 6380:6379
     volumes:
       - redis-data:/data
-
+       
+    networks:
+      - mas-hms-network
+    
 volumes:
-  mongo-data:
   redis-data:
+
+networks:
+  mas-hms-network:
+    external: true

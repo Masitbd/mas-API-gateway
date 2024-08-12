@@ -7,7 +7,7 @@ import { RedisClient } from './shared/redis';
 async function MainServerFunction() {
   // await RedisClient.connect();
   const server: Server = app.listen(config.port, () => {
-    logger.info(`Server running on port ${config.port}`);
+    logger.info(`Server running on the port ${config.port}`);
   });
 
   const exitHandler = () => {
