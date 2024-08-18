@@ -30,6 +30,7 @@ import { ReportRoutes } from '../modules/testReportGenerator/report.routes';
 import { TransactionRoutes } from '../modules/transaction/transaction.routes';
 import { UserPermissionRoutes } from '../modules/userPermission/userPermission.routes';
 import { VacuumTubeRoutes } from '../modules/vacuumTube/vacuumTube.routes';
+import { MiscellaneousRoutes } from '../modules/miscellaneous/miscellaneous.routes';
 
 const router = express.Router();
 
@@ -147,6 +148,10 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.SEAL,
     routes: DoctorSealRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.MISCELLANEOUS,
+    routes: MiscellaneousRoutes.routes
   }
 ];
 

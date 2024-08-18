@@ -1,12 +1,11 @@
-
-import { Request } from 'express';
 import { Core_Service_Api_Path } from '../../../enums/coreServiceApiPath';
 import { IGenericResponse } from '../../../interfaces/common';
 import { CoreService } from '../../../shared/axios';
+import { Request } from 'express';
 
-const createDoctorSeal = async (req: Request) => {
+const post = async (req: Request) => {
   const response: IGenericResponse = await CoreService.post(
-    Core_Service_Api_Path.SEAL,
+    Core_Service_Api_Path.MISCELLANEOUS,
     req.body,
     {
       headers: {
@@ -17,9 +16,9 @@ const createDoctorSeal = async (req: Request) => {
   return response;
 };
 
-const updateDoctorSeal = async (req: Request) => {
+const patch = async (req: Request) => {
   const response: IGenericResponse = await CoreService.patch(
-    `${Core_Service_Api_Path.SEAL + '/' + req.params.id}`,
+    `${Core_Service_Api_Path.MISCELLANEOUS + '/' + req.params.id}`,
     req.body,
     {
       headers: {
@@ -30,9 +29,9 @@ const updateDoctorSeal = async (req: Request) => {
   return response;
 };
 
-const deleteDoctorSeal = async (req: Request) => {
+const reomve = async (req: Request) => {
   const response: IGenericResponse = await CoreService.delete(
-    Core_Service_Api_Path.SEAL + '/' + req.params.id,
+    Core_Service_Api_Path.MISCELLANEOUS + '/' + req.params.id,
     {
       headers: {
         Authorization: req.headers.authorization
@@ -42,9 +41,9 @@ const deleteDoctorSeal = async (req: Request) => {
   return response;
 };
 
-const getSingleDoctorSeal = async (req: Request) => {
+const fetchSingle = async (req: Request) => {
   const response: IGenericResponse = await CoreService.get(
-    Core_Service_Api_Path.SEAL + '/' + req.params.id,
+    Core_Service_Api_Path.MISCELLANEOUS + '/' + req.params.id,
     {
       headers: {
         Authorization: req.headers.authorization
@@ -54,19 +53,20 @@ const getSingleDoctorSeal = async (req: Request) => {
   return response;
 };
 
-const getAllDoctorSeal = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.get(Core_Service_Api_Path.SEAL, {
+const fetch = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(Core_Service_Api_Path.MISCELLANEOUS, {
     headers: {
       Authorization: req.headers.authorization
-    }
+    },
+    params: req.query
   });
   return response;
 };
 
-export const DoctorSealService = {
-    createDoctorSeal,
-    updateDoctorSeal,
-    getSingleDoctorSeal,
-    getAllDoctorSeal,
-    deleteDoctorSeal,
+export const MiscellaneousService = {
+  post,
+  patch,
+  reomve,
+  fetch,
+  fetchSingle
 };

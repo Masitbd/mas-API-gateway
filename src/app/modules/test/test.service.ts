@@ -31,7 +31,8 @@ const fetchAllTest = async (req: Request) => {
   const response: IGenericResponse = await CoreService.get('/test', {
     headers: {
       Authorization: req.headers.authorization
-    }
+    },
+    params: req.query
   });
   return response;
 };
