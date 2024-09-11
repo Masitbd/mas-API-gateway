@@ -56,11 +56,21 @@ const dewCollection = async (req: Request, res: Response, next: NextFunction) =>
   }
 };
 
+const getIncome = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await OrderService.getIncomeStatement(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const OrderController = {
   getInvoice,
   createOrder,
   updateOrder,
   getAllOrder,
   getSingleOrder,
-  dewCollection
+  dewCollection,
+  getIncome
 };

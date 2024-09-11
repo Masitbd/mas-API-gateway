@@ -11,12 +11,12 @@ const fetchInvoice = async (req: Request) => {
 };
 
 const postOrder = async (req: Request) => {
-  const respone: IGenericResponse = await CoreService.post(Core_Service_Api_Path.ORDER, req.body, {
+  const response: IGenericResponse = await CoreService.post(Core_Service_Api_Path.ORDER, req.body, {
     headers: {
       Authorization: req.headers.authorization
     }
   });
-  return respone;
+  return response;
 };
 
 const patchOrder = async (req: Request) => {
@@ -32,7 +32,7 @@ const patchOrder = async (req: Request) => {
   return respone;
 };
 const fetchAllOrder = async (req: Request) => {
-  console.log(req.query);
+  // console.log(req.query);
   const respone: IGenericResponse = await CoreService.get(Core_Service_Api_Path.ORDER, {
     headers: {
       Authorization: req.headers.authorization
@@ -66,11 +66,28 @@ const dewCollection = async (req: Request) => {
   );
   return respone;
 };
+
+// income
+
+const getIncomeStatement = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.post(
+    `${Core_Service_Api_Path.ORDER}/income-statement`,
+    req.body,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
 export const OrderService = {
   dewCollection,
   fetchInvoice,
   postOrder,
   patchOrder,
   fetchSingleOrder,
-  fetchAllOrder
+  fetchAllOrder,
+  getIncomeStatement
 };
