@@ -31,6 +31,7 @@ import { TransactionRoutes } from '../modules/transaction/transaction.routes';
 import { UserPermissionRoutes } from '../modules/userPermission/userPermission.routes';
 import { VacuumTubeRoutes } from '../modules/vacuumTube/vacuumTube.routes';
 import { MiscellaneousRoutes } from '../modules/miscellaneous/miscellaneous.routes';
+import { IncomeStatementRoutes } from '../modules/incomeStatement/incomeStatement.routes';
 
 const router = express.Router();
 
@@ -152,6 +153,10 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.MISCELLANEOUS,
     routes: MiscellaneousRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.INCOMESTATEMENT,
+    routes: IncomeStatementRoutes.routes
   }
 ];
 
