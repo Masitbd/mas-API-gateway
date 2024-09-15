@@ -20,5 +20,7 @@ export enum Core_Service_Api_Path {
   REPORT_TEST = '/report/test',
   COMMENT = '/comment',
   SEAL = '/seal',
-  MISCELLANEOUS = '/miscellaneous'
+  MISCELLANEOUS = '/miscellaneous',
+  REFUND = '/refund',
+  FINANCIALREPORT = '/financialReport'
 }

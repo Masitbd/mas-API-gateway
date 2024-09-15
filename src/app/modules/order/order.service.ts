@@ -32,7 +32,6 @@ const patchOrder = async (req: Request) => {
   return respone;
 };
 const fetchAllOrder = async (req: Request) => {
-  console.log(req.query);
   const respone: IGenericResponse = await CoreService.get(Core_Service_Api_Path.ORDER, {
     headers: {
       Authorization: req.headers.authorization
@@ -66,11 +65,26 @@ const dewCollection = async (req: Request) => {
   );
   return respone;
 };
+
+const singleStatusChanger = async (req: Request) => {
+  const respone: IGenericResponse = await CoreService.post(
+    Core_Service_Api_Path.ORDER + '/statusChange/' + req.params.oid,
+    req.body,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return respone;
+};
+
 export const OrderService = {
   dewCollection,
   fetchInvoice,
   postOrder,
   patchOrder,
   fetchSingleOrder,
-  fetchAllOrder
+  fetchAllOrder,
+  singleStatusChanger
 };

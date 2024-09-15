@@ -9,7 +9,6 @@ const postBacteria = async (req: Request) => {
   return response;
 };
 const patchBacteria = async (req: Request) => {
-  console.log(req.params.id);
   const response: IGenericResponse = await CoreService.patch(
     `${Core_Service_Api_Path.BACTERIA}/${req.params.id}`,
     req.body,
