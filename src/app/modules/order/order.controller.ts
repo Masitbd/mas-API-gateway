@@ -56,6 +56,17 @@ const dewCollection = async (req: Request, res: Response, next: NextFunction) =>
   }
 };
 
+//  due details
+
+const getDueDetails = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await OrderService.getDueDetailsFromDb(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 const getIncome = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await OrderService.getIncomeStatement(req);
@@ -72,5 +83,6 @@ export const OrderController = {
   getAllOrder,
   getSingleOrder,
   dewCollection,
-  getIncome
+  getIncome,
+  getDueDetails
 };

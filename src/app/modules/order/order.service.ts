@@ -67,6 +67,18 @@ const dewCollection = async (req: Request) => {
   return respone;
 };
 
+// get due details
+
+const getDueDetailsFromDb = async (req: Request) => {
+  const respone: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.ORDER}/due-details/`,
+    {
+      params: req.query
+    }
+  );
+  return respone;
+};
+
 // income
 
 const getIncomeStatement = async (req: Request) => {
@@ -89,5 +101,6 @@ export const OrderService = {
   patchOrder,
   fetchSingleOrder,
   fetchAllOrder,
-  getIncomeStatement
+  getIncomeStatement,
+  getDueDetailsFromDb
 };
