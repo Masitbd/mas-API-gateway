@@ -41,10 +41,42 @@ const getDeptWIseIncomeStatement = async (req: Request, res: Response, next: Nex
     next(error);
   }
 };
+const getDeptWIseCollectionSummery = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchDeptWiseCollectionSummery(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getDeptWiseDoctorPerformance = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchDeptWIseDoctorPerformance(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getTestWiseDoctorPerformance = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchTestWIseDoctorPerformance(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const FinancialReportController = {
   getOverallCommission,
   getDoctorPerformanceSUmmery,
   getTestWIseIncomeStatement,
-  getDeptWIseIncomeStatement
+  getDeptWIseIncomeStatement,
+  getDeptWIseCollectionSummery,
+  getDeptWiseDoctorPerformance,
+  getTestWiseDoctorPerformance
 };

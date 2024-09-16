@@ -53,9 +53,50 @@ const getDeptWiseIncomeStatement = async (req: Request) => {
   );
   return response;
 };
+
+const fetchDeptWiseCollectionSummery = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/collectionStatement/deptWise',
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
+
+const fetchDeptWIseDoctorPerformance = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/doctorsPerformance/deptWise/' + req.params.id,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
+const fetchTestWIseDoctorPerformance = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/doctorsPerformance/testWise/' + req.params.id,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
 export const FinancialReportService = {
   getOverallCommission,
   fetchDoctorPerformanceSummery,
   getTestWiseIncomeStatement,
-  getDeptWiseIncomeStatement
+  getDeptWiseIncomeStatement,
+  fetchDeptWiseCollectionSummery,
+  fetchDeptWIseDoctorPerformance,
+  fetchTestWIseDoctorPerformance
 };
