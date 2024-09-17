@@ -21,5 +21,8 @@ export enum Core_Service_Api_Path {
   COMMENT = '/comment',
   SEAL = '/seal',
   MISCELLANEOUS = '/miscellaneous',
-  INCOMESTATEMENT = '/income-statemnet'
+  INCOMESTATEMENT = '/income-statemnet',
+  REFUND = '/refund',
+  FINANCIALREPORT = '/financialReport',
+
 }

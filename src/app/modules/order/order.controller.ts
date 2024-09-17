@@ -55,6 +55,14 @@ const dewCollection = async (req: Request, res: Response, next: NextFunction) =>
     next(error);
   }
 };
+const singleStatusChanger = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await OrderService.singleStatusChanger(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 //  due details
 
@@ -84,5 +92,6 @@ export const OrderController = {
   getSingleOrder,
   dewCollection,
   getIncome,
-  getDueDetails
+  getDueDetails,
+  singleStatusChanger
 };
