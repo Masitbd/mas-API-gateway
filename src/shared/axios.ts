@@ -2,6 +2,8 @@ import axios, { AxiosInstance } from 'axios';
 import config from '../config';
 
 const HttpService = (baseUrl: string): AxiosInstance => {
+  // console.log(baseUrl, 'basse');
+
   const instance = axios.create({
     baseURL: baseUrl,
     timeout: 600000,

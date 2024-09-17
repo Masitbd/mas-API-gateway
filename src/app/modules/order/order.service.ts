@@ -11,12 +11,12 @@ const fetchInvoice = async (req: Request) => {
 };
 
 const postOrder = async (req: Request) => {
-  const respone: IGenericResponse = await CoreService.post(Core_Service_Api_Path.ORDER, req.body, {
+  const response: IGenericResponse = await CoreService.post(Core_Service_Api_Path.ORDER, req.body, {
     headers: {
       Authorization: req.headers.authorization
     }
   });
-  return respone;
+  return response;
 };
 
 const patchOrder = async (req: Request) => {
@@ -66,9 +66,23 @@ const dewCollection = async (req: Request) => {
   return respone;
 };
 
-const singleStatusChanger = async (req: Request) => {
-  const respone: IGenericResponse = await CoreService.post(
-    Core_Service_Api_Path.ORDER + '/statusChange/' + req.params.oid,
+// get due details
+
+const getDueDetailsFromDb = async (req: Request) => {
+  const respone: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.ORDER}/due-details/`,
+    {
+      params: req.query
+    }
+  );
+  return respone;
+};
+
+// income
+
+const getIncomeStatement = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.post(
+    `${Core_Service_Api_Path.ORDER}/income-statement`,
     req.body,
     {
       headers: {
@@ -76,9 +90,8 @@ const singleStatusChanger = async (req: Request) => {
       }
     }
   );
-  return respone;
+  return response;
 };
-
 export const OrderService = {
   dewCollection,
   fetchInvoice,
@@ -86,5 +99,8 @@ export const OrderService = {
   patchOrder,
   fetchSingleOrder,
   fetchAllOrder,
+  getIncomeStatement,
+  getDueDetailsFromDb,
   singleStatusChanger
+
 };
