@@ -8,7 +8,7 @@ routes.get('/commission/single/:id', FinancialReportController.getDoctorPerforma
 routes.get('/incomeStatement/testWise', FinancialReportController.getTestWIseIncomeStatement);
 routes.get('/incomeStatement/deptWise', FinancialReportController.getDeptWIseIncomeStatement);
 routes.get('/incomeStatement/clientWise', FinancialReportController.clientWiseIncomeStatement);
-
+routes.get('/incomeStatement/refByWise', FinancialReportController.refByWiseIncomeStatement);
 routes.get('/collectionStatement/deptWise', FinancialReportController.getDeptWIseCollectionSummery);
 
 routes.get(
