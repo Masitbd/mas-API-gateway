@@ -92,6 +92,19 @@ const getIncomeStatement = async (req: Request) => {
   );
   return response;
 };
+const singleStatusChanger = async (req: Request) => {
+  const respone: IGenericResponse = await CoreService.post(
+    Core_Service_Api_Path.ORDER + '/statusChange/' + req.params.oid,
+    req.body,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return respone;
+};
+
 export const OrderService = {
   dewCollection,
   fetchInvoice,
@@ -102,5 +115,4 @@ export const OrderService = {
   getIncomeStatement,
   getDueDetailsFromDb,
   singleStatusChanger
-
 };
