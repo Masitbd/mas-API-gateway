@@ -19,4 +19,5 @@ routes.get(
   '/doctorsPerformance/testWise/:id',
   FinancialReportController.getTestWiseDoctorPerformance
 );
+routes.get('/employeeLedger', FinancialReportController.getEmployeeLedger);
 export const FinancialReportRoutes = { routes };
