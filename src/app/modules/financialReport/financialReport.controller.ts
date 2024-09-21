@@ -99,6 +99,27 @@ const getEmployeeLedger = async (req: Request, res: Response, next: NextFunction
     next(error);
   }
 };
+
+const getAllTests = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchAllTests(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getAllDoctors = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchAllDoctors(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const FinancialReportController = {
   getOverallCommission,
   getDoctorPerformanceSUmmery,
@@ -109,5 +130,7 @@ export const FinancialReportController = {
   getTestWiseDoctorPerformance,
   clientWiseIncomeStatement,
   refByWiseIncomeStatement,
-  getEmployeeLedger
+  getEmployeeLedger,
+  getAllDoctors,
+  getAllTests
 };
