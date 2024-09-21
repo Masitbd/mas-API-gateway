@@ -70,6 +70,55 @@ const getTestWiseDoctorPerformance = async (req: Request, res: Response, next: N
     next(error);
   }
 };
+const clientWiseIncomeStatement = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.clientWiseIncomeStatement(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const refByWiseIncomeStatement = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.refByWiseIncomeStatement(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getEmployeeLedger = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchEmployeeLedger(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getAllTests = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchAllTests(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getAllDoctors = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchAllDoctors(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const FinancialReportController = {
   getOverallCommission,
@@ -78,5 +127,10 @@ export const FinancialReportController = {
   getDeptWIseIncomeStatement,
   getDeptWIseCollectionSummery,
   getDeptWiseDoctorPerformance,
-  getTestWiseDoctorPerformance
+  getTestWiseDoctorPerformance,
+  clientWiseIncomeStatement,
+  refByWiseIncomeStatement,
+  getEmployeeLedger,
+  getAllDoctors,
+  getAllTests
 };

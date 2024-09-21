@@ -91,6 +91,68 @@ const fetchTestWIseDoctorPerformance = async (req: Request) => {
   );
   return response;
 };
+const clientWiseIncomeStatement = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/incomeStatement/clientWise',
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
+
+const refByWiseIncomeStatement = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/incomeStatement/refByWise',
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
+
+const fetchEmployeeLedger = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/employeeLedger',
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
+const fetchAllTests = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/tests',
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
+const fetchAllDoctors = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/doctors',
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
 export const FinancialReportService = {
   getOverallCommission,
   fetchDoctorPerformanceSummery,
@@ -98,5 +160,10 @@ export const FinancialReportService = {
   getDeptWiseIncomeStatement,
   fetchDeptWiseCollectionSummery,
   fetchDeptWIseDoctorPerformance,
-  fetchTestWIseDoctorPerformance
+  fetchTestWIseDoctorPerformance,
+  clientWiseIncomeStatement,
+  refByWiseIncomeStatement,
+  fetchEmployeeLedger,
+  fetchAllDoctors,
+  fetchAllTests
 };
