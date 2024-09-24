@@ -42,8 +42,72 @@ const updateCompanyInfoIntoDB = async (req: Request) => {
   return response;
 };
 
+const fetchCloudinarySecret = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.COMPANYINFO + '/' + 'couldianry-sercet'}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
+const fecthCreatable = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.COMPANYINFO + '/' + 'creatable'}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
+const fetchDefaultCompanyInfo = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.COMPANYINFO + '/' + 'default'}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
+const fetchSingleCompanyInfo = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.COMPANYINFO + '/' + req.params.id}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
+const deleteCompanyInfo = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.delete(
+    `${Core_Service_Api_Path.COMPANYINFO + '/' + req.params.id}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
 export const ComapnyInfoServices = {
   createCompanyInfoIntoDB,
   getCompanyInfoIntoDB,
-  updateCompanyInfoIntoDB
+  updateCompanyInfoIntoDB,
+  fetchCloudinarySecret,
+  fecthCreatable,
+  fetchDefaultCompanyInfo,
+  fetchSingleCompanyInfo,
+  deleteCompanyInfo
 };

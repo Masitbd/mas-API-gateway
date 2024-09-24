@@ -36,8 +36,63 @@ const updateCompanyInfo = async (req: Request, res: Response, next: NextFunction
   }
 };
 
+const getCloudinarySecret = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await ComapnyInfoServices.fetchCloudinarySecret(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getCreatable = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await ComapnyInfoServices.fecthCreatable(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getDefaultCompanyInfo = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await ComapnyInfoServices.fetchDefaultCompanyInfo(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getSingleCompanyInfo = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await ComapnyInfoServices.fetchSingleCompanyInfo(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const deleteSingleCompanyInfo = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await ComapnyInfoServices.deleteCompanyInfo(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const CompanyControllers = {
   createCompanyInfo,
   getCompanyInfo,
-  updateCompanyInfo
+  updateCompanyInfo,
+  getCloudinarySecret,
+  getCreatable,
+  getDefaultCompanyInfo,
+  getSingleCompanyInfo,
+  deleteSingleCompanyInfo
 };
