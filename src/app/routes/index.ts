@@ -37,6 +37,7 @@ import { IncomeStatementRoutes } from '../modules/incomeStatement/incomeStatemen
 import { RefundRoutes } from '../modules/refund/refund.routes';
 import { FinancialReportRoutes } from '../modules/financialReport/financialReport.routes';
 import { CompnayInfoRoutes } from '../modules/companyInfo/companyInfo.routes';
+import { EmployeeRoutes } from '../modules/employee/employee.routes';
 
 const router = express.Router();
 
@@ -174,6 +175,10 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.COMPANYINFO,
     routes: CompnayInfoRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.EMPLOYEE,
+    routes: EmployeeRoutes.routes
   }
 ];
 

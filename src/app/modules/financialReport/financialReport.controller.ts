@@ -120,6 +120,15 @@ const getAllDoctors = async (req: Request, res: Response, next: NextFunction) =>
   }
 };
 
+const getEmployeePerformance = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchEmployeePerfromance(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 export const FinancialReportController = {
   getOverallCommission,
   getDoctorPerformanceSUmmery,
@@ -132,5 +141,6 @@ export const FinancialReportController = {
   refByWiseIncomeStatement,
   getEmployeeLedger,
   getAllDoctors,
-  getAllTests
+  getAllTests,
+  getEmployeePerformance
 };
