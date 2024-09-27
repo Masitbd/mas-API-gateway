@@ -153,6 +153,19 @@ const fetchAllDoctors = async (req: Request) => {
   );
   return response;
 };
+
+const fetchEmployeePerfromance = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/marketing-executive-performance',
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
 export const FinancialReportService = {
   getOverallCommission,
   fetchDoctorPerformanceSummery,
@@ -165,5 +178,6 @@ export const FinancialReportService = {
   refByWiseIncomeStatement,
   fetchEmployeeLedger,
   fetchAllDoctors,
-  fetchAllTests
+  fetchAllTests,
+  fetchEmployeePerfromance
 };
