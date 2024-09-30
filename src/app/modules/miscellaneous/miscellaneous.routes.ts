@@ -5,6 +5,7 @@ const routes = express.Router();
 
 routes.post('/', MiscellaneousController.create);
 routes.get('/:id', MiscellaneousController.getsingle);
+routes.get('/page/margin-data', MiscellaneousController.getMarginData);
 routes.get('/', MiscellaneousController.getAll);
 routes.patch('/:id', MiscellaneousController.update);
 routes.delete('/:id', MiscellaneousController.Remove);

@@ -62,11 +62,24 @@ const fetch = async (req: Request) => {
   });
   return response;
 };
+//
+const getMarginDataFromDB = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.MISCELLANEOUS}/page/margin-data`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
 
 export const MiscellaneousService = {
   post,
   patch,
   reomve,
   fetch,
-  fetchSingle
+  fetchSingle,
+  getMarginDataFromDB
 };
