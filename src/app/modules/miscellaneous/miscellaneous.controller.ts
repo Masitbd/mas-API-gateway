@@ -52,10 +52,21 @@ const getsingle = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
+const getMarginData = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await MiscellaneousService.getMarginDataFromDB(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const MiscellaneousController = {
   create,
   update,
   Remove,
   getAll,
-  getsingle
+  getsingle,
+  getMarginData
 };
