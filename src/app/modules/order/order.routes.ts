@@ -8,7 +8,7 @@ routes.post('/', OrderController.createOrder);
 
 routes.patch('/:id', OrderController.updateOrder);
 routes.get('/', OrderController.getAllOrder);
-
+routes.get('/order-posted-by', OrderController.getOrderPostedBy);
 routes.get('/due-details', OrderController.getDueDetails);
 routes.get('/:id', OrderController.getSingleOrder);
 routes.patch('/dewCollection/:oid', OrderController.dewCollection);

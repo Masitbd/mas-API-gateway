@@ -84,6 +84,15 @@ const getIncome = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
+const getOrderPostedBy = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await OrderService.fetchOrderPostedBy(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const OrderController = {
   getInvoice,
   createOrder,
@@ -93,5 +102,6 @@ export const OrderController = {
   dewCollection,
   getIncome,
   getDueDetails,
-  singleStatusChanger
+  singleStatusChanger,
+  getOrderPostedBy
 };
