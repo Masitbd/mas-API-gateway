@@ -7,6 +7,9 @@ const getEmployeeIncomeStatementFromDB = async (req: Request) => {
   const response: IGenericResponse = await CoreService.get(
     `${Core_Service_Api_Path.INCOMESTATEMENT}`,
     {
+      headers: {
+        Authorization: req.headers.authorization
+      },
       params: req.query
     }
   );
@@ -18,6 +21,9 @@ const getEmployeeIncomeStatementSummeryFromDB = async (req: Request) => {
   const response: IGenericResponse = await CoreService.get(
     `${Core_Service_Api_Path.INCOMESTATEMENT}/summery`,
     {
+      headers: {
+        Authorization: req.headers.authorization
+      },
       params: req.query
     }
   );

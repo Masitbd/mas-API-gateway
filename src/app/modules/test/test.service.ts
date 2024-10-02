@@ -22,7 +22,12 @@ const pathchTest = async (req: Request) => {
 };
 
 const deleteTest = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.delete(`/test/${req.params.id}`);
+  const response: IGenericResponse = await CoreService.delete(`/test/${req.params.id}`, {
+    headers: {
+      Authorization: req.headers.authorization
+    },
+    params: req.query
+  });
 
   return response;
 };

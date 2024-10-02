@@ -5,7 +5,13 @@ import { Core_Service_Api_Path } from '../../../enums/coreServiceApiPath';
 
 const fetchInvoice = async (req: Request) => {
   const respone: IGenericResponse = await CoreService.get(
-    `${Core_Service_Api_Path.ORDER}/invoice/${req.params.oid}`
+    `${Core_Service_Api_Path.ORDER}/invoice/${req.params.oid}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
   );
   return respone;
 };
@@ -72,6 +78,9 @@ const getDueDetailsFromDb = async (req: Request) => {
   const respone: IGenericResponse = await CoreService.get(
     `${Core_Service_Api_Path.ORDER}/due-details/`,
     {
+      headers: {
+        Authorization: req.headers.authorization
+      },
       params: req.query
     }
   );

@@ -5,7 +5,12 @@ import { IGenericResponse } from '../../../interfaces/common';
 
 const fetchSinlgeAccount = async (req: Request) => {
   const response: IGenericResponse = await CoreService.get(
-    `${Core_Service_Api_Path.ACCOUNT}/${req.params.id}`
+    `${Core_Service_Api_Path.ACCOUNT}/${req.params.id}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
   );
   return response;
 };
