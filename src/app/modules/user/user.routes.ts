@@ -27,16 +27,7 @@ routes.patch(
   UserController.updateUser
 );
 
-routes.get(
-  '/',
-  auth(
-    ENUM_USER_PERMISSION.ADMIN,
-    ENUM_USER_PERMISSION.SUPER_ADMIN,
-    ENUM_USER_PERMISSION.MANAGE_USER,
-    ENUM_USER_PERMISSION.GET_ALL_USER
-  ),
-  UserController.getAllUser
-);
+routes.get('/', UserController.getAllUser);
 
 routes.get(
   '/:uuid',
