@@ -46,7 +46,7 @@ const resetPassword = async (req: Request): Promise<IGenericResponse> => {
 
 const changePasswordByAdmin = async (req: Request): Promise<IGenericResponse> => {
   const response: IGenericResponse = await AuthService.post(
-    '/auth//change-password-by-admin',
+    '/auth/change-password-by-admin',
     req.body,
     {
       headers: {
