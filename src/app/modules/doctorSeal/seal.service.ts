@@ -1,19 +1,14 @@
-
 import { Request } from 'express';
 import { Core_Service_Api_Path } from '../../../enums/coreServiceApiPath';
 import { IGenericResponse } from '../../../interfaces/common';
 import { CoreService } from '../../../shared/axios';
 
 const createDoctorSeal = async (req: Request) => {
-  const response: IGenericResponse = await CoreService.post(
-    Core_Service_Api_Path.SEAL,
-    req.body,
-    {
-      headers: {
-        Authorization: req.headers.authorization
-      }
+  const response: IGenericResponse = await CoreService.post(Core_Service_Api_Path.SEAL, req.body, {
+    headers: {
+      Authorization: req.headers.authorization
     }
-  );
+  });
   return response;
 };
 
@@ -58,15 +53,16 @@ const getAllDoctorSeal = async (req: Request) => {
   const response: IGenericResponse = await CoreService.get(Core_Service_Api_Path.SEAL, {
     headers: {
       Authorization: req.headers.authorization
-    }
+    },
+    params: req.query
   });
   return response;
 };
 
 export const DoctorSealService = {
-    createDoctorSeal,
-    updateDoctorSeal,
-    getSingleDoctorSeal,
-    getAllDoctorSeal,
-    deleteDoctorSeal,
+  createDoctorSeal,
+  updateDoctorSeal,
+  getSingleDoctorSeal,
+  getAllDoctorSeal,
+  deleteDoctorSeal
 };

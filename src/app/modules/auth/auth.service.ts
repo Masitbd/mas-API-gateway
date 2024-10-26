@@ -57,11 +57,32 @@ const changePasswordByAdmin = async (req: Request): Promise<IGenericResponse> =>
   return response;
 };
 
+const rusticateUser = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await AuthService.post('/auth/rusticate-user', req.body, {
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+
+  return response;
+};
+
+const makeUserActive = async (req: Request): Promise<IGenericResponse> => {
+  const response: IGenericResponse = await AuthService.post('/auth/activate-user', req.body, {
+    headers: {
+      Authorization: req.headers.authorization
+    }
+  });
+
+  return response;
+};
 export const AuthenticationService = {
   loginUser,
   refreshToken,
   changePassword,
   forgotPassword,
   resetPassword,
-  changePasswordByAdmin
+  changePasswordByAdmin,
+  rusticateUser,
+  makeUserActive
 };

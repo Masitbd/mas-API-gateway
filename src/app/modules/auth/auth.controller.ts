@@ -83,11 +83,31 @@ const changeUserPasswordBYAdmin = async (req: Request, res: Response, next: Next
     next(error);
   }
 };
+
+const rusticateUser = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AuthenticationService.rusticateUser(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+const makeUserActive = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AuthenticationService.makeUserActive(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 export const AuthenticationController = {
   loginUser,
   refreshToken,
   changePassword,
   forgotPassword,
   resetPassword,
-  changeUserPasswordBYAdmin
+  changeUserPasswordBYAdmin,
+  rusticateUser,
+  makeUserActive
 };
