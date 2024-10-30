@@ -24,8 +24,21 @@ const getEmployeeIncomeStatementSummery = async (
     next(error);
   }
 };
+const getLastTwentyEightDasysPaidAmount = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const result = await IncomeServices.getLastTwentyEightDasysPaidAmountFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const IncomeStatementControllers = {
   getEmployeeIncomeStatement,
-  getEmployeeIncomeStatementSummery
+  getEmployeeIncomeStatementSummery,
+  getLastTwentyEightDasysPaidAmount
 };
