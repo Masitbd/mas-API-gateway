@@ -30,7 +30,15 @@ const getEmployeeIncomeStatementSummeryFromDB = async (req: Request) => {
   return response;
 };
 
+const getLastTwentyEightDasysPaidAmountFromDB = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.INCOMESTATEMENT}/last-paid`
+  );
+  return response;
+};
+
 export const IncomeServices = {
   getEmployeeIncomeStatementFromDB,
-  getEmployeeIncomeStatementSummeryFromDB
+  getEmployeeIncomeStatementSummeryFromDB,
+  getLastTwentyEightDasysPaidAmountFromDB
 };
