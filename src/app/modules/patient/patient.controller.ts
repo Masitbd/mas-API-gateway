@@ -13,6 +13,7 @@ const createPatient = async (req: Request, res: Response, next: NextFunction) =>
 };
 
 const updatePatient = async (req: Request, res: Response, next: NextFunction) => {
+  console.log(req.body);
   try {
     const result = await PatientService.updatePatient(req);
 

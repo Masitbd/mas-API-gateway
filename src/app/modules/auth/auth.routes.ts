@@ -27,5 +27,8 @@ router.post(
   validateRequest(AuthValidation.changePasswordZodSchema),
   AuthenticationController.changePassword
 );
+router.post('/change-password-by-admin', AuthenticationController.changeUserPasswordBYAdmin);
 
+router.post('/rusticate-user', AuthenticationController.rusticateUser);
+router.post('/activate-user', AuthenticationController.makeUserActive);
 export const AuthRoutes = { router };
