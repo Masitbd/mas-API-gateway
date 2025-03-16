@@ -38,6 +38,11 @@ import { RefundRoutes } from '../modules/refund/refund.routes';
 import { FinancialReportRoutes } from '../modules/financialReport/financialReport.routes';
 import { CompnayInfoRoutes } from '../modules/companyInfo/companyInfo.routes';
 import { EmployeeRoutes } from '../modules/employee/employee.routes';
+import { Indoor_Service_Api_Path } from '../../enums/indoorServiceApiPath';
+import { BedRoutes } from '../modules/beds/bed.routes';
+import { WorldRoutes } from '../modules/wrolds/world.routes';
+import { AdmissionRoutes } from '../modules/patient-admission/admission.routes';
+import { PaymentsRoutes } from '../modules/payments/payments.routes';
 
 const router = express.Router();
 
@@ -179,6 +184,23 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.EMPLOYEE,
     routes: EmployeeRoutes.routes
+  },
+  //  indoor
+  {
+    path: Indoor_Service_Api_Path.BEDS,
+    routes: BedRoutes.routes
+  },
+  {
+    path: Indoor_Service_Api_Path.WORLDS,
+    routes: WorldRoutes.routes
+  },
+  {
+    path: Indoor_Service_Api_Path.ADMISSION,
+    routes: AdmissionRoutes.routes
+  },
+  {
+    path: Indoor_Service_Api_Path.PAYMENTS,
+    routes: PaymentsRoutes.routes
   }
 ];
 
