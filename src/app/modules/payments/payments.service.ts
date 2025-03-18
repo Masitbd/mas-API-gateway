@@ -33,7 +33,8 @@ const createPaymentsIntoDB = async (req: Request) => {
 
 const updatePaymentsntoDB = async (req: Request) => {
   const response: IGenericResponse = await IndoorService.patch(
-    `${Indoor_Service_Api_Path.PAYMENTS}`
+    `${Indoor_Service_Api_Path.PAYMENTS}/${req.params.regno}`,
+    req.body
   );
   return response;
 };

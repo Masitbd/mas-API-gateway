@@ -16,6 +16,17 @@ const getAdmissionsFromDB = async (req: Request) => {
   );
   return response;
 };
+const getSingleAdmissionsFromDB = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.get(
+    `${Indoor_Service_Api_Path.ADMISSION}/${req.params.id}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
 
 //
 const createAdmissionsIntoDB = async (req: Request) => {
@@ -46,6 +57,7 @@ const deleteAdmissionsIntoDB = async (req: Request) => {
 
 export const AdmissionsService = {
   getAdmissionsFromDB,
+  getSingleAdmissionsFromDB,
   createAdmissionsIntoDB,
   updateAdmissionsntoDB,
   deleteAdmissionsIntoDB

@@ -1,6 +1,12 @@
 FROM node:21-alpine
 ENV PORT=${PORT}
 COPY ./package.json .
-RUN npm install
+RUN npm install && \
+    npm run build && \
+    npm cache clean --force && \
+    rm -rf /root/.npm && \
+    rm -rf node_modules
+
 COPY . .
-CMD ["npm","run","dev"]
+EXPOSE 3001
+CMD ["npm","start"]
