@@ -7,6 +7,7 @@ routes.get('/', AdmissionControllers.getAdmissions);
 
 routes.post('/', AdmissionControllers.createAdmissions);
 routes.post('/release', AdmissionControllers.releaseAdmit);
+routes.patch('/transfer', AdmissionControllers.transferPatientBed);
 routes.get('/:id', AdmissionControllers.getSignleAdmissions);
 routes.put('/:id', AdmissionControllers.updateAdmissions);
 routes.delete('/:id', AdmissionControllers.deleteAdmissions);

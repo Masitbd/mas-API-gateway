@@ -54,6 +54,18 @@ const relesaseAdmitPatientIntoDB = async (req: Request) => {
   );
   return response;
 };
+const transferPatientBeDIntoDB = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.patch(
+    `${Indoor_Service_Api_Path.ADMISSION}/transfer`,
+    req.body,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
 
 const updateAdmissionsntoDB = async (req: Request) => {
   const response: IGenericResponse = await IndoorService.patch(
@@ -73,6 +85,7 @@ export const AdmissionsService = {
   getSingleAdmissionsFromDB,
   createAdmissionsIntoDB,
   relesaseAdmitPatientIntoDB,
+  transferPatientBeDIntoDB,
   updateAdmissionsntoDB,
   deleteAdmissionsIntoDB
 };
