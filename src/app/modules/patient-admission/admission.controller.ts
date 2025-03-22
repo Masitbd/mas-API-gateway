@@ -28,6 +28,15 @@ const createAdmissions = async (req: Request, res: Response, next: NextFunction)
     next(error);
   }
 };
+// release
+const releaseAdmit = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AdmissionsService.relesaseAdmitPatientIntoDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 const updateAdmissions = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await AdmissionsService.updateAdmissionsntoDB(req);
@@ -50,6 +59,7 @@ export const AdmissionControllers = {
   getAdmissions,
   getSignleAdmissions,
   createAdmissions,
+  releaseAdmit,
   updateAdmissions,
   deleteAdmissions
 };
