@@ -18,7 +18,7 @@ const getWorldsFromDB = async (req: Request) => {
 
 //
 const createWorldsIntoDB = async (req: Request) => {
-  console.log(req.body, 'body in api');
+  // console.log(req.body, 'body in api');
 
   const response: IGenericResponse = await IndoorService.post(
     `${Indoor_Service_Api_Path.WORLDS}`,
@@ -33,12 +33,15 @@ const createWorldsIntoDB = async (req: Request) => {
 };
 
 const updateWorldIntoDB = async (req: Request) => {
-  const response: IGenericResponse = await IndoorService.patch(`${Indoor_Service_Api_Path.WORLDS}`);
+  const response: IGenericResponse = await IndoorService.patch(
+    `${Indoor_Service_Api_Path.WORLDS}/${req.params.id}`,
+    req.body
+  );
   return response;
 };
 const deleteWorldsIntoDB = async (req: Request) => {
   const response: IGenericResponse = await IndoorService.delete(
-    `${Indoor_Service_Api_Path.WORLDS}`
+    `${Indoor_Service_Api_Path.WORLDS}/${req.params.id}`
   );
   return response;
 };
