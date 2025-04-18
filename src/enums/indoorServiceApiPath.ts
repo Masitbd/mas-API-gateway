@@ -4,5 +4,6 @@ export enum Indoor_Service_Api_Path {
   ADMISSION = '/admission',
   PAYMENTS = '/payments',
   PACKAGES = '/packages',
-  DESEASE = '/desease'
+  DESEASE = '/desease',
+  FINANCE = '/indoor-finance'
 }
