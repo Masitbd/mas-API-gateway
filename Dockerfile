@@ -1,7 +1,8 @@
 FROM node:21-alpine
-ENV PORT=${PORT}
-COPY ./package.json .
+# ENV PORT=${PORT}
+COPY package.json tsconfig.json ./
 RUN npm install && \
+    npm install cookie-parser && \
     npm run build && \
     npm cache clean --force && \
     rm -rf /root/.npm && \
