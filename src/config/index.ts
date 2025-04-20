@@ -18,7 +18,8 @@ const envVarsZodSchema = z.object({
   PAYMENT_SERVICE_URL: z.string(),
   CLOUDINARY_CLOUD_NAME: z.string(),
   CLOUDINARY_API_KEY: z.string(),
-  CLOUDINARY_API_SECRET: z.string()
+  CLOUDINARY_API_SECRET: z.string(),
+  ACCOUNT_SERVICE_URL: z.string()
 });
 
 const envVars = envVarsZodSchema.parse(process.env);
@@ -36,6 +37,7 @@ export default {
   coreServiceUrl: envVars.CORE_SERVICE_URL,
   indoorServiceUrl: envVars.INDOOR_SERVICE_URL,
   paymentServiceUrl: envVars.PAYMENT_SERVICE_URL,
+  accountServiceUrl: envVars.ACCOUNT_SERVICE_URL,
   cloudinary: {
     cloudName: envVars.CLOUDINARY_CLOUD_NAME,
     apiKey: envVars.CLOUDINARY_API_KEY,

@@ -127,6 +127,18 @@ const fetchOrderPostedBy = async (req: Request) => {
   return respone;
 };
 
+const getOrderAndPaymentInfoByUUID = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.ORDER + '/payment-info/' + req?.params?.uuid,
+
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
 export const OrderService = {
   dewCollection,
   fetchInvoice,
@@ -137,5 +149,6 @@ export const OrderService = {
   getIncomeStatement,
   getDueDetailsFromDb,
   singleStatusChanger,
-  fetchOrderPostedBy
+  fetchOrderPostedBy,
+  getOrderAndPaymentInfoByUUID
 };

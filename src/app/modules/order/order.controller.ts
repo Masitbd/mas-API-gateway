@@ -93,6 +93,15 @@ const getOrderPostedBy = async (req: Request, res: Response, next: NextFunction)
   }
 };
 
+const getOrderAndPaymentInfoByUUID = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await OrderService.getOrderAndPaymentInfoByUUID(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const OrderController = {
   getInvoice,
   createOrder,
@@ -103,5 +112,6 @@ export const OrderController = {
   getIncome,
   getDueDetails,
   singleStatusChanger,
-  getOrderPostedBy
+  getOrderPostedBy,
+  getOrderAndPaymentInfoByUUID
 };
