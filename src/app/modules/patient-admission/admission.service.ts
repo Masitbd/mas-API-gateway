@@ -16,6 +16,31 @@ const getAdmissionsFromDB = async (req: Request) => {
   );
   return response;
 };
+// today
+const getTodayAdmissionsFromDB = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.get(
+    `${Indoor_Service_Api_Path.ADMISSION}/today-admit`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
+const getAdmissionsOverPeriodFromDB = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.get(
+    `${Indoor_Service_Api_Path.ADMISSION}/admit-overperiod`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
 const getSingleAdmissionsFromDB = async (req: Request) => {
   const response: IGenericResponse = await IndoorService.get(
     `${Indoor_Service_Api_Path.ADMISSION}/${req.params.id}`,
@@ -66,6 +91,18 @@ const transferPatientBeDIntoDB = async (req: Request) => {
   );
   return response;
 };
+const addServiceToPatientIntoDB = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.patch(
+    `${Indoor_Service_Api_Path.ADMISSION}/add-service`,
+    req.body,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
 
 const updateAdmissionsntoDB = async (req: Request) => {
   const response: IGenericResponse = await IndoorService.patch(
@@ -83,9 +120,12 @@ const deleteAdmissionsIntoDB = async (req: Request) => {
 export const AdmissionsService = {
   getAdmissionsFromDB,
   getSingleAdmissionsFromDB,
+  getTodayAdmissionsFromDB,
+  getAdmissionsOverPeriodFromDB,
   createAdmissionsIntoDB,
   relesaseAdmitPatientIntoDB,
   transferPatientBeDIntoDB,
+  addServiceToPatientIntoDB,
   updateAdmissionsntoDB,
   deleteAdmissionsIntoDB
 };
