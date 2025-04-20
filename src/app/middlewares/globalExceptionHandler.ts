@@ -4,6 +4,7 @@ import { ZodError } from 'zod';
 import config from '../../config';
 import ApiError from '../../errors/apiError';
 import handleZodError from '../../errors/handleZodError';
+import { errorlogger } from '../../shared/logger';
 // import logger from '../../shared/logger';
 
 const globalExceptionHandler: ErrorRequestHandler = (
@@ -19,7 +20,9 @@ const globalExceptionHandler: ErrorRequestHandler = (
 
   let statusCode = 500;
   let message = 'Something went wrong';
-
+  config.env === 'development'
+    ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
+    : errorlogger.error(`🐱‍🏍 globalErrorHandler ~~`, error);
   if (error instanceof AxiosError) {
     statusCode = error.response?.status || 500;
     message = error.response?.data?.message || 'Something went wrong';

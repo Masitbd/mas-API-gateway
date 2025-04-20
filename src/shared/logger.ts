@@ -1,25 +1,58 @@
-// import path from 'path';
-// import winston from 'winston';
-// import DailyRotateFile from 'winston-daily-rotate-file';
+import path from 'path';
+import { createLogger, format, transports } from 'winston';
+import DailyRotateFile from 'winston-daily-rotate-file';
+const { combine, timestamp, label, printf } = format;
 
-// const logger = winston.createLogger({
-//   level: 'info',
-//   format: winston.format.combine(winston.format.timestamp(), winston.format.json()),
-//   transports: [
-//     new DailyRotateFile({
-//       filename: path.join(process.cwd(), 'logs', 'winston', 'success', 'success-%DATE%.log'),
-//       datePattern: 'YYYY-MM-DD',
-//       level: 'info'
-//     }),
-//     new DailyRotateFile({
-//       filename: path.join(process.cwd(), 'logs', 'winston', 'error', 'error-%DATE%.log'),
-//       datePattern: 'YYYY-MM-DD',
-//       level: 'error'
-//     }),
-//     new winston.transports.Console({
-//       stderrLevels: ['error']
-//     })
-//   ]
-// });
+//Customm Log Format
 
-// export default logger;
+const myFormat = printf(({ level, message, label, timestamp }) => {
+  const date = new Date(timestamp as Date);
+  const hour = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  return `${date.toDateString()} ${hour}:${minutes}:${seconds} } [${label}] ${level}: ${message}`;
+});
+
+const logger = createLogger({
+  level: 'info',
+  format: combine(label({ label: 'MAS_HMS' }), timestamp(), myFormat),
+  transports: [
+    new transports.Console(),
+    new DailyRotateFile({
+      filename: path.join(
+        process.cwd(),
+        'logs',
+        'winston',
+        'successes',
+        'HMS-SERVER-%DATE%-success.log'
+      ),
+      datePattern: 'YYYY-DD-MM-HH',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '14d'
+    })
+  ]
+});
+
+const errorlogger = createLogger({
+  level: 'error',
+  format: combine(label({ label: 'HMS' }), timestamp(), myFormat),
+  transports: [
+    new transports.Console(),
+    new DailyRotateFile({
+      filename: path.join(
+        process.cwd(),
+        'logs',
+        'winston',
+        'errors',
+        'HMS-SERVER-%DATE%-error.log'
+      ),
+      datePattern: 'YYYY-DD-MM-HH',
+      zippedArchive: true,
+      maxSize: '20m',
+      maxFiles: '14d'
+    })
+  ]
+});
+
+export { errorlogger, logger };
