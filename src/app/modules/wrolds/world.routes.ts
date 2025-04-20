@@ -6,7 +6,7 @@ const routes = Router();
 routes.get('/', WorldControllers.getWorlds);
 
 routes.post('/', WorldControllers.createWorlds);
-routes.put('/:id', WorldControllers.updateWorlds);
+routes.patch('/:id', WorldControllers.updateWorlds);
 routes.delete('/:id', WorldControllers.deleteWorlds);
 
 export const WorldRoutes = { routes };

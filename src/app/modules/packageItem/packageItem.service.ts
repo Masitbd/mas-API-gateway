@@ -7,21 +7,24 @@ import { IndoorService } from '../../../shared/axios';
 // const response: IGenericResponse = await AuthService.post('/auth/login', req.body);
 // return response;
 
-const getWorldsFromDB = async (req: Request) => {
-  const response: IGenericResponse = await IndoorService.get(`${Indoor_Service_Api_Path.WORLDS}`, {
-    headers: {
-      Authorization: req.headers.authorization
+const getPackagesFromDB = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.get(
+    `${Indoor_Service_Api_Path.PACKAGES}`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
     }
-  });
+  );
   return response;
 };
 
 //
-const createWorldsIntoDB = async (req: Request) => {
+const createPackagesIntoDB = async (req: Request) => {
   // console.log(req.body, 'body in api');
 
   const response: IGenericResponse = await IndoorService.post(
-    `${Indoor_Service_Api_Path.WORLDS}`,
+    `${Indoor_Service_Api_Path.PACKAGES}`,
     req.body,
     {
       headers: {
@@ -34,21 +37,21 @@ const createWorldsIntoDB = async (req: Request) => {
 
 const updateWorldIntoDB = async (req: Request) => {
   const response: IGenericResponse = await IndoorService.patch(
-    `${Indoor_Service_Api_Path.WORLDS}/${req.params.id}`,
+    `${Indoor_Service_Api_Path.PACKAGES}/${req.params.id}`,
     req.body
   );
   return response;
 };
-const deleteWorldsIntoDB = async (req: Request) => {
+const deletePackagesIntoDB = async (req: Request) => {
   const response: IGenericResponse = await IndoorService.delete(
-    `${Indoor_Service_Api_Path.WORLDS}/${req.params.id}`
+    `${Indoor_Service_Api_Path.PACKAGES}/${req.params.id}`
   );
   return response;
 };
 
-export const WorldsService = {
-  getWorldsFromDB,
-  createWorldsIntoDB,
+export const packagesService = {
+  getPackagesFromDB,
+  createPackagesIntoDB,
   updateWorldIntoDB,
-  deleteWorldsIntoDB
+  deletePackagesIntoDB
 };

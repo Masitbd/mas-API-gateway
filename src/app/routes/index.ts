@@ -43,6 +43,9 @@ import { BedRoutes } from '../modules/beds/bed.routes';
 import { WorldRoutes } from '../modules/wrolds/world.routes';
 import { AdmissionRoutes } from '../modules/patient-admission/admission.routes';
 import { PaymentsRoutes } from '../modules/payments/payments.routes';
+import { PackageRoutes } from '../modules/packageItem/packageItem.routes';
+import { DeseaseRoutes } from '../modules/desease/desease.routes';
+import { IndoorFinanceRoutes } from '../modules/indoor-finacnce/finance.routes';
 
 const router = express.Router();
 
@@ -201,6 +204,18 @@ const moduleRoutes = [
   {
     path: Indoor_Service_Api_Path.PAYMENTS,
     routes: PaymentsRoutes.routes
+  },
+  {
+    path: Indoor_Service_Api_Path.PACKAGES,
+    routes: PackageRoutes.routes
+  },
+  {
+    path: Indoor_Service_Api_Path.DESEASE,
+    routes: DeseaseRoutes.routes
+  },
+  {
+    path: Indoor_Service_Api_Path.FINANCE,
+    routes: IndoorFinanceRoutes.routes
   }
 ];
 
