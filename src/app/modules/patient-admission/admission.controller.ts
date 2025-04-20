@@ -10,6 +10,22 @@ const getAdmissions = async (req: Request, res: Response, next: NextFunction) =>
     next(error);
   }
 };
+const getTodayAdmissions = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AdmissionsService.getTodayAdmissionsFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+const getAdmissionsOVerPeriod = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AdmissionsService.getAdmissionsOverPeriodFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 const getSignleAdmissions = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await AdmissionsService.getSingleAdmissionsFromDB(req);
@@ -45,6 +61,14 @@ const transferPatientBed = async (req: Request, res: Response, next: NextFunctio
     next(error);
   }
 };
+const addPateintService = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await AdmissionsService.addServiceToPatientIntoDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 const updateAdmissions = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await AdmissionsService.updateAdmissionsntoDB(req);
@@ -65,10 +89,13 @@ const deleteAdmissions = async (req: Request, res: Response, next: NextFunction)
 
 export const AdmissionControllers = {
   getAdmissions,
+  getTodayAdmissions,
+  getAdmissionsOVerPeriod,
   getSignleAdmissions,
   createAdmissions,
   releaseAdmit,
   transferPatientBed,
+  addPateintService,
   updateAdmissions,
   deleteAdmissions
 };

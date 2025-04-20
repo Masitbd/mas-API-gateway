@@ -4,9 +4,9 @@
   "repository": "",
   "author": "Maruf Ahmed",
   "license": "MIT",
-   "main": "src/server.js",
+  "main": "src/server.js",
   "scripts": {
-     "start": "node ./dist/server.js",
+    "start": "node ./dist/server.js",
     "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec ",
     "build": "npx tsc"
   },
@@ -27,6 +27,8 @@
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "redis": "^4.6.6",
+    "winston": "^3.17.0",
+    "winston-daily-rotate-file": "^5.0.0",
     "zod": "^3.21.4"
   },
   "devDependencies": {
