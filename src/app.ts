@@ -9,7 +9,7 @@ const app: Application = express();
 
 app.use(
   cors({
-    origin: 'https://mas-hms-frontend.vercel.app',
+    origin: 'http://148.135.137.151:9006',
     credentials: true
   })
 );
