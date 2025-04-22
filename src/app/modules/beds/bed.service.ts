@@ -13,6 +13,18 @@ const getbedsFromDB = async (req: Request) => {
   });
   return response;
 };
+const getbedsForAdminFromDB = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.get(
+    `${Indoor_Service_Api_Path.BEDS}/for-admin`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
 
 //
 const createBedsIntoDB = async (req: Request) => {
@@ -41,6 +53,7 @@ const deleteBedsIntoDB = async (req: Request) => {
 
 export const BedService = {
   getbedsFromDB,
+  getbedsForAdminFromDB,
   createBedsIntoDB,
   updateBedIntoDB,
   deleteBedsIntoDB

@@ -34,10 +34,19 @@ const getIndoorEmpDetailsLedger = async (req: Request, res: Response, next: Next
     next(error);
   }
 };
+const getPateintHospitalBillSummery = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await IndoorFinanceService.getPateintHospitalBillSummeryFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const IndoorFinanceControllers = {
   getIndoorIncomeLedger,
   getIndoorDueCollectionLedger,
   getIndoorDueLedger,
-  getIndoorEmpDetailsLedger
+  getIndoorEmpDetailsLedger,
+  getPateintHospitalBillSummery
 };
