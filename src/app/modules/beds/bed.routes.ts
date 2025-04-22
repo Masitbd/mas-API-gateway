@@ -7,7 +7,7 @@ routes.get('/', BedControllers.getBeds);
 routes.get('/for-admin', BedControllers.getBedsForAdmin);
 
 routes.post('/', BedControllers.createBed);
-routes.put('/:id', BedControllers.updateBed);
+routes.patch('/:id', BedControllers.updateBed);
 routes.delete('/:id', BedControllers.deleteBed);
 
 export const BedRoutes = { routes };
