@@ -42,11 +42,29 @@ const getPateintHospitalBillSummery = async (req: Request, res: Response, next: 
     next(error);
   }
 };
+const getPateintHospitalBillDetails = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await IndoorFinanceService.getPateintHospitalBillDetailsFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+const getPateintDoctorBills = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await IndoorFinanceService.getPateintDoctorBillsFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const IndoorFinanceControllers = {
   getIndoorIncomeLedger,
   getIndoorDueCollectionLedger,
   getIndoorDueLedger,
   getIndoorEmpDetailsLedger,
-  getPateintHospitalBillSummery
+  getPateintHospitalBillSummery,
+  getPateintHospitalBillDetails,
+  getPateintDoctorBills
 };
