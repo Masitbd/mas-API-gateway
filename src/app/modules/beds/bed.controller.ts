@@ -10,6 +10,14 @@ const getBeds = async (req: Request, res: Response, next: NextFunction) => {
     next(error);
   }
 };
+const getBedsForAdmin = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await BedService.getbedsForAdminFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 //
 const createBed = async (req: Request, res: Response, next: NextFunction) => {
@@ -40,6 +48,7 @@ const deleteBed = async (req: Request, res: Response, next: NextFunction) => {
 
 export const BedControllers = {
   getBeds,
+  getBedsForAdmin,
   createBed,
   updateBed,
   deleteBed
