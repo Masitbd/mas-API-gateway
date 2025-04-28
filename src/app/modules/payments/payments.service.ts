@@ -38,6 +38,15 @@ const updatePaymentsntoDB = async (req: Request) => {
   );
   return response;
 };
+//
+const updateDiscountIntoDB = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.patch(
+    `${Indoor_Service_Api_Path.PAYMENTS}/update/${req.params.patientRegNo}`,
+    req.body
+  );
+  return response;
+};
+
 const deletePaymentsIntoDB = async (req: Request) => {
   const response: IGenericResponse = await IndoorService.delete(
     `${Indoor_Service_Api_Path.PAYMENTS}`
@@ -49,5 +58,6 @@ export const PaymentsService = {
   getPaymentsFromDB,
   createPaymentsIntoDB,
   updatePaymentsntoDB,
+  updateDiscountIntoDB,
   deletePaymentsIntoDB
 };
