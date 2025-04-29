@@ -28,6 +28,14 @@ const updatePayments = async (req: Request, res: Response, next: NextFunction) =
     next(error);
   }
 };
+const updateDiscount = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await PaymentsService.updateDiscountIntoDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 const deletePayments = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -42,5 +50,6 @@ export const PaymentsControllers = {
   getPayments,
   createPayments,
   updatePayments,
+  updateDiscount,
   deletePayments
 };
