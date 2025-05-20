@@ -9,7 +9,7 @@ const app: Application = express();
 
 app.use(
   cors({
-    origin: 'http://148.135.137.151:9006',
+    origin: 'http://localhost:3000',
     credentials: true
   })
 );

@@ -38,9 +38,18 @@ const deleteWorlds = async (req: Request, res: Response, next: NextFunction) => 
   }
 };
 
+const getSingleWord = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await WorldsService.getSingleWord(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 export const WorldControllers = {
   getWorlds,
   createWorlds,
   updateWorlds,
-  deleteWorlds
+  deleteWorlds,
+  getSingleWord
 };

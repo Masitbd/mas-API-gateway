@@ -46,9 +46,17 @@ const deleteWorldsIntoDB = async (req: Request) => {
   return response;
 };
 
+const getSingleWord = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.get(
+    `${Indoor_Service_Api_Path.WORLDS}/${req.params.id}`
+  );
+  return response;
+};
+
 export const WorldsService = {
   getWorldsFromDB,
   createWorldsIntoDB,
   updateWorldIntoDB,
-  deleteWorldsIntoDB
+  deleteWorldsIntoDB,
+  getSingleWord
 };

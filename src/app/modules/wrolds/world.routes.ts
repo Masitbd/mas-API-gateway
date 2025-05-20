@@ -8,5 +8,6 @@ routes.get('/', WorldControllers.getWorlds);
 routes.post('/', WorldControllers.createWorlds);
 routes.patch('/:id', WorldControllers.updateWorlds);
 routes.delete('/:id', WorldControllers.deleteWorlds);
+routes.get('/:id', WorldControllers.getSingleWord);
 
 export const WorldRoutes = { routes };

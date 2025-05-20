@@ -38,9 +38,18 @@ const deletePackages = async (req: Request, res: Response, next: NextFunction) =
   }
 };
 
+const getSinglePackage = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await packagesService.getSinglePackage(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 export const packagesControllers = {
   getPackages,
   createPackages,
   updatePackages,
-  deletePackages
+  deletePackages,
+  getSinglePackage
 };

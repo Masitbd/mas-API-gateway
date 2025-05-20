@@ -49,9 +49,16 @@ const deletePackagesIntoDB = async (req: Request) => {
   return response;
 };
 
+const getSinglePackage = async (req: Request) => {
+  const response: IGenericResponse = await IndoorService.get(
+    `${Indoor_Service_Api_Path.PACKAGES}/${req.params.id}`
+  );
+  return response;
+};
 export const packagesService = {
   getPackagesFromDB,
   createPackagesIntoDB,
   updateWorldIntoDB,
-  deletePackagesIntoDB
+  deletePackagesIntoDB,
+  getSinglePackage
 };
