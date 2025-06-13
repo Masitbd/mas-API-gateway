@@ -216,6 +216,10 @@ const moduleRoutes = [
   {
     path: Indoor_Service_Api_Path.FINANCE,
     routes: IndoorFinanceRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.REFUND,
+    routes: RefundRoutes.routes
   }
 ];
 
