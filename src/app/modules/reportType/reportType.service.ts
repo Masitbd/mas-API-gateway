@@ -39,4 +39,13 @@ const fetchAll = async (req: Request) => {
   })) as IGenericResponse;
 };
 
-export const ReportTypeService = { post, patch, fetchSingle, fetchAll };
+const RemoveReportType = async (req: Request) => {
+  return (await CoreService.delete(`${Core_Service_Api_Path.REPORT_Type}/${req?.params?.id}`, {
+    headers: {
+      Authorization: req.headers.authorization
+    },
+    params: req.query
+  })) as IGenericResponse;
+};
+
+export const ReportTypeService = { post, patch, fetchSingle, fetchAll, RemoveReportType };

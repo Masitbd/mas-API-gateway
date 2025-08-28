@@ -42,4 +42,14 @@ const getAll = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
-export const ReportTypeController = { create, update, getSingle, getAll };
+const RemoveReportType = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await ReportTypeService.RemoveReportType(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const ReportTypeController = { create, update, getSingle, getAll, RemoveReportType };
