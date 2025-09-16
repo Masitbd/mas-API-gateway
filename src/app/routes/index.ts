@@ -46,6 +46,7 @@ import { PaymentsRoutes } from '../modules/payments/payments.routes';
 import { PackageRoutes } from '../modules/packageItem/packageItem.routes';
 import { DeseaseRoutes } from '../modules/desease/desease.routes';
 import { IndoorFinanceRoutes } from '../modules/indoor-finacnce/finance.routes';
+import { ReportMarginRoutes } from '../modules/report-margin/reportMargin.route';
 
 const router = express.Router();
 
@@ -220,6 +221,10 @@ const moduleRoutes = [
   {
     path: Core_Service_Api_Path.REFUND,
     routes: RefundRoutes.routes
+  },
+  {
+    path: Core_Service_Api_Path.REPORT_MARGIN,
+    routes: ReportMarginRoutes.routes
   }
 ];
 

@@ -25,5 +25,6 @@ export enum Core_Service_Api_Path {
   REFUND = '/refund',
   FINANCIALREPORT = '/financialReport',
   COMPANYINFO = '/company-info',
-  EMPLOYEE = '/employeeRegistration'
+  EMPLOYEE = '/employeeRegistration',
+  REPORT_MARGIN = '/report-margin'
 }
