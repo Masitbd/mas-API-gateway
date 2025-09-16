@@ -37,8 +37,23 @@ const getLastTwentyEightDasysPaidAmountFromDB = async (req: Request) => {
   return response;
 };
 
+// ! due collection statement
+const getDueCollectionStatementFromDB = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    `${Core_Service_Api_Path.INCOMESTATEMENT}/due-collection-statement`,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
+
 export const IncomeServices = {
   getEmployeeIncomeStatementFromDB,
   getEmployeeIncomeStatementSummeryFromDB,
-  getLastTwentyEightDasysPaidAmountFromDB
+  getLastTwentyEightDasysPaidAmountFromDB,
+  getDueCollectionStatementFromDB
 };
