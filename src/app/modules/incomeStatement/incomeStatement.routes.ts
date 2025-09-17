@@ -6,5 +6,6 @@ const routes = express.Router();
 routes.get('/', IncomeStatementControllers.getEmployeeIncomeStatement);
 routes.get('/summery', IncomeStatementControllers.getEmployeeIncomeStatementSummery);
 routes.get('/last-paid', IncomeStatementControllers.getLastTwentyEightDasysPaidAmount);
+routes.get('/due-collection-statement', IncomeStatementControllers.getDueCollectionStatement);
 
 export const IncomeStatementRoutes = { routes };

@@ -37,8 +37,20 @@ const getLastTwentyEightDasysPaidAmount = async (
   }
 };
 
+// ! due collection statement
+
+const getDueCollectionStatement = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await IncomeServices.getDueCollectionStatementFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const IncomeStatementControllers = {
   getEmployeeIncomeStatement,
   getEmployeeIncomeStatementSummery,
-  getLastTwentyEightDasysPaidAmount
+  getLastTwentyEightDasysPaidAmount,
+  getDueCollectionStatement
 };
