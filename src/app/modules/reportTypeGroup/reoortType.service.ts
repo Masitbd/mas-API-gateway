@@ -55,4 +55,23 @@ const fetchAll = async (req: Request) => {
   return response;
 };
 
-export const ReportGroupTypeService = { post, patch, fetchAll, fetchSingle };
+const changeHeaderVisibility = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.patch(
+    `${Core_Service_Api_Path.REPORT_TYPE_GROUP}/change-header-visibility/${req?.params.id}`,
+    req.body,
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      }
+    }
+  );
+  return response;
+};
+
+export const ReportGroupTypeService = {
+  post,
+  patch,
+  fetchAll,
+  fetchSingle,
+  changeHeaderVisibility
+};

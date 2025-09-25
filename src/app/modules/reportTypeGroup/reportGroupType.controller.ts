@@ -41,9 +41,20 @@ const getSingle = async (req: Request, res: Response, next: NextFunction) => {
   }
 };
 
+const changeHeaderVisibility = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await ReportGroupTypeService.changeHeaderVisibility(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const ReportTypeGroupController = {
   create,
   update,
   getAll,
-  getSingle
+  getSingle,
+  changeHeaderVisibility
 };
