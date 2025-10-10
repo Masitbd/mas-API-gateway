@@ -47,10 +47,19 @@ const getDueCollectionStatement = async (req: Request, res: Response, next: Next
     next(error);
   }
 };
+const getRefundStatement = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await IncomeServices.getRefundStatementFromDB(req);
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const IncomeStatementControllers = {
   getEmployeeIncomeStatement,
   getEmployeeIncomeStatementSummery,
   getLastTwentyEightDasysPaidAmount,
-  getDueCollectionStatement
+  getDueCollectionStatement,
+  getRefundStatement
 };
