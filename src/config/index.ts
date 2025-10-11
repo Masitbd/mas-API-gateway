@@ -19,7 +19,9 @@ const envVarsZodSchema = z.object({
   CLOUDINARY_CLOUD_NAME: z.string(),
   CLOUDINARY_API_KEY: z.string(),
   CLOUDINARY_API_SECRET: z.string(),
-  ACCOUNT_SERVICE_URL: z.string()
+  ACCOUNT_SERVICE_URL: z.string(),
+  FRONTEND_PRODUCTION_URL: z.string(),
+  FRONTEND_DEV_URL: z.string()
 });
 
 const envVars = envVarsZodSchema.parse(process.env);
@@ -42,5 +44,7 @@ export default {
     cloudName: envVars.CLOUDINARY_CLOUD_NAME,
     apiKey: envVars.CLOUDINARY_API_KEY,
     apiSecret: envVars.CLOUDINARY_API_SECRET
-  }
+  },
+  corsOrigin:
+    envVars.NODE_ENV == 'development' ? envVars.FRONTEND_DEV_URL : envVars.FRONTEND_PRODUCTION_URL
 };

@@ -4,12 +4,13 @@ import express, { Application, NextFunction, Request, Response } from 'express';
 import httpStatus from 'http-status';
 import globalExceptionHandler from './app/middlewares/globalExceptionHandler';
 import routes from './app/routes';
+import config from './config';
 
 const app: Application = express();
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin: config.corsOrigin,
     credentials: true
   })
 );
