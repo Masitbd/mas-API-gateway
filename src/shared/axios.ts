@@ -5,6 +5,8 @@ const HttpService = (baseUrl: string): AxiosInstance => {
   // console.log(baseUrl, 'basse');
 
   const instance = axios.create({
+    maxBodyLength: Infinity,
+    maxContentLength: Infinity,
     baseURL: baseUrl,
     timeout: 600000,
     headers: {
@@ -32,9 +34,9 @@ const HttpService = (baseUrl: string): AxiosInstance => {
 
   return instance;
 };
-
-const AuthService = HttpService(config.authServiceUrl);
 const CoreService = HttpService(config.coreServiceUrl);
+const AuthService = HttpService(config.authServiceUrl);
+
 const IndoorService = HttpService(config.indoorServiceUrl);
 const AccountService = HttpService(config.accountServiceUrl);
 

@@ -70,6 +70,15 @@ const getTestWiseDoctorPerformance = async (req: Request, res: Response, next: N
     next(error);
   }
 };
+const getOrderWiseDoctorPerformance = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const result = await FinancialReportService.fetchOrderWIseDoctorPerformance(req);
+
+    sendResponse(res, result);
+  } catch (error) {
+    next(error);
+  }
+};
 const clientWiseIncomeStatement = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const result = await FinancialReportService.clientWiseIncomeStatement(req);
@@ -142,5 +151,6 @@ export const FinancialReportController = {
   getEmployeeLedger,
   getAllDoctors,
   getAllTests,
-  getEmployeePerformance
+  getEmployeePerformance,
+  getOrderWiseDoctorPerformance
 };

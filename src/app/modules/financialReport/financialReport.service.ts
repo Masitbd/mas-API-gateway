@@ -91,6 +91,19 @@ const fetchTestWIseDoctorPerformance = async (req: Request) => {
   );
   return response;
 };
+
+const fetchOrderWIseDoctorPerformance = async (req: Request) => {
+  const response: IGenericResponse = await CoreService.get(
+    Core_Service_Api_Path.FINANCIALREPORT + '/doctorsPerformance/orderWise',
+    {
+      headers: {
+        Authorization: req.headers.authorization
+      },
+      params: req.query
+    }
+  );
+  return response;
+};
 const clientWiseIncomeStatement = async (req: Request) => {
   const response: IGenericResponse = await CoreService.get(
     Core_Service_Api_Path.FINANCIALREPORT + '/incomeStatement/clientWise',
@@ -179,5 +192,6 @@ export const FinancialReportService = {
   fetchEmployeeLedger,
   fetchAllDoctors,
   fetchAllTests,
-  fetchEmployeePerfromance
+  fetchEmployeePerfromance,
+  fetchOrderWIseDoctorPerformance
 };

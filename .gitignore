@@ -8,3 +8,9 @@ build
 logs
 dist
 .vercel
+
+api-gateway.exe
+hello.exe
+linux
+sea-prep.blob
+out

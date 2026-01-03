@@ -20,9 +20,11 @@ const globalExceptionHandler: ErrorRequestHandler = (
 
   let statusCode = 500;
   let message = 'Something went wrong';
-  config.env === 'development'
-    ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
-    : errorlogger.error(`🐱‍🏍 globalErrorHandler ~~`, error);
+  // config.env === 'development'
+  //   ? console.log(`🐱‍🏍 globalErrorHandler ~~`, { error })
+  //   : errorlogger.error(`🐱‍🏍 globalErrorHandler ~~`, error);
+
+  console.log(` globalErrorHandler ~~`, { error });
   if (error instanceof AxiosError) {
     statusCode = error.response?.status || 500;
     message = error.response?.data?.message || 'Something went wrong';

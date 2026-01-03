@@ -19,6 +19,10 @@ routes.get(
   '/doctorsPerformance/testWise/:id',
   FinancialReportController.getTestWiseDoctorPerformance
 );
+routes.get(
+  '/doctorsPerformance/orderWise',
+  FinancialReportController.getOrderWiseDoctorPerformance
+);
 routes.get('/employeeLedger', FinancialReportController.getEmployeeLedger);
 routes.get('/tests', FinancialReportController.getAllTests);
 routes.get('/doctors', FinancialReportController.getAllDoctors);
